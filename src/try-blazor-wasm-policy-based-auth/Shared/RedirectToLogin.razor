@@ -1,0 +1,8 @@
+﻿@using try_blazor_wasm_policy_based_auth.Services
+@attribute [AllowAnonymous]
+@inject IAuthService AuthService
+
+@code {
+    /// <inheritdoc />
+    protected override async Task OnInitializedAsync() => await AuthService.LoginAsync();
+}

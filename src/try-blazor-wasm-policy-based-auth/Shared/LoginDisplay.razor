@@ -1,0 +1,12 @@
+﻿@using try_blazor_wasm_policy_based_auth.Services
+@inject IAuthService AuthService
+
+<AuthorizeView>
+    <Authorized>
+        Hello, @context.User.Identity?.Name!
+        <button class="nav-link btn btn-link" @onclick="@(() => AuthService.LogoutAsync())">Log out</button>
+    </Authorized>
+    <NotAuthorized>
+        <button class="nav-link btn btn-link" @onclick="@(() => AuthService.LoginAsync())">Log in</button>
+    </NotAuthorized>
+</AuthorizeView>
